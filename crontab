@@ -1,2 +1,0 @@
-#!/bin/sh
-/app/get_iplayer --pvr 2>&1

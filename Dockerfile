@@ -18,6 +18,8 @@ RUN mkdir -p /data/output /data/config
 WORKDIR /app
 
 ENV GET_IPLAYER_VERSION=3.22
+ENV GETIPLAYERUSERPREFS="/data/config"
+ENV IPLAYER_OUTDIR="/data/downloads"
 
 RUN wget -qO- https://github.com/get-iplayer/get_iplayer/archive/v${GET_IPLAYER_VERSION}.tar.gz | tar -xvz -C /tmp && \
     mv /tmp/get_iplayer-${GET_IPLAYER_VERSION}/get_iplayer . && \
@@ -25,9 +27,6 @@ RUN wget -qO- https://github.com/get-iplayer/get_iplayer/archive/v${GET_IPLAYER_
     rm -rf /tmp/* && \
     chmod +x ./get_iplayer && \
     chmod +x ./get_iplayer.cgi
-
-ADD crontab /etc/periodic/hourly/iplayer
-RUN chmod a+x /etc/periodic/hourly/iplayer
 
 RUN chown -R app:app ./
 
