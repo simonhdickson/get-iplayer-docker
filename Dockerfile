@@ -17,7 +17,7 @@ RUN mkdir -p /data/output /data/config
 
 WORKDIR /app
 
-ENV GET_IPLAYER_VERSION=3.28
+ENV GET_IPLAYER_VERSION=3.29
 ENV GETIPLAYERUSERPREFS="/data/config"
 ENV IPLAYER_OUTDIR="/data/downloads"
 
